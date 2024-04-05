@@ -1,6 +1,10 @@
 #ifndef SDA_MODELS_H
 #define SDA_MODELS_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 typedef struct document Document;
 
 struct document {
