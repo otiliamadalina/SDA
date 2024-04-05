@@ -306,14 +306,9 @@ void q4(const Database *db) {
     country_rev *countries = malloc(sizeof(country_rev) * 10000);
     int nr_of_countries = 0;
     for (int i = 0; i < db->nr_of_rows; i++) {
-
         int country_position = search_country_in_array(countries, db->products[i].country, nr_of_countries);
-
-
         if (country_position == -1) {
-            //realloc(countries, sizeof(country_rev) * (nr_of_countries + 1));
             countries[nr_of_countries].country_name = tmp_str_to_str(db->products[i].country);
-
             countries[nr_of_countries].cities = malloc(sizeof(city_rev) * 10000);
             countries[nr_of_countries].nr_of_cities = 0;
             country_position = nr_of_countries;
@@ -324,13 +319,9 @@ void q4(const Database *db) {
                                                  db->products[i].city,
                                                  countries[country_position].nr_of_cities);
 
-
         if (city_position == -1) {
-
-            //realloc(countries[country_position].cities, sizeof(city_rev) * ((countries[country_position].nr_of_cities) + 1));
             int last_city = countries[country_position].nr_of_cities;
             countries[country_position].cities[last_city].city_name = tmp_str_to_str(db->products[i].city);
-
             countries[country_position].cities[last_city].revenue = 0;
             city_position = last_city;
             countries[country_position].nr_of_cities++;
@@ -341,12 +332,10 @@ void q4(const Database *db) {
 
     }
 
-    // Sort cities by revenue
     for (int i = 0; i < nr_of_countries; i++) {
         qsort(countries[i].cities, countries[i].nr_of_cities, sizeof(city_rev), cmp_cities_revenue);
     }
 
-    // Print top 2 cities by country
     int top_number = 1;
     for (int i = 0; i < nr_of_countries; i++) {
         printf("%s:\n", countries[i].country_name);
@@ -365,7 +354,6 @@ void q4(const Database *db) {
         free(countries[i].country_name);
     }
     free(countries);
-
 
 }
 
