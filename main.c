@@ -1,3 +1,12 @@
-//
-// Created by ASUS on 05.04.2024.
-//
+#include "models.h"
+
+
+
+int main() {
+
+    Document d;
+
+
+
+    return 0;
+}

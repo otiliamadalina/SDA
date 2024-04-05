@@ -6,4 +6,6 @@ set(CMAKE_C_STANDARD 11)
 include_directories(.)
 
 add_executable(SDA
-        main.c)
+        main.c
+        models.h
+        models.c)
