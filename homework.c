@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "linear_regression.h"
 
 #define BUFFER_SIZE 10
+#define MONTHS_PER_YEAR 12
 
 struct date {
     unsigned int day;
@@ -357,16 +359,38 @@ void q4(const Database *db) {
 
 }
 
+void q5(const Database *db, int year, const char* subcategory) {
+    int next_prediction = 13;
+    double months[MONTHS_PER_YEAR] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+    double revenue[MONTHS_PER_YEAR] = {0};
+    for (int i = 0; i < db->nr_of_rows; i++) {
+        if ((db->products[i].date.year == year) && (strcmp(db->products[i].subcategory, subcategory) == 0))
+        {
+            revenue[db->products[i].date.month - 1] += (db->products[i].price * db->products[i].amount);
+        }
+    }
+    printf("For %d and subcategory: %s we have:\n", year, subcategory);
+    for (int i = 0; i < 12; i++) {
+        printf("For month nr. %d: %.2lf\n", i, revenue[i]);
+    }
+
+    double next_revenue_prediction = predict_next_value(months, revenue, MONTHS_PER_YEAR, next_prediction);
+    printf("Next prediction for %d: %.2lf\n", next_prediction, next_revenue_prediction);
+}
+
 
 int main() {
     Database *db = read_db_from_file("db.txt");
     //unsigned int limit = 10;
-    //print_db(db, NULL);
+    //print_db(db, &limit);
     //count_revenue_per_month_of_year(db, 2001);
     //print_top_5_products(db);
 
     //q3(db);
-    q4(db);
+    //q4(db);
+
+    q5(db, 2022, "meeting");
+
     free_database(&db);
 
     return 0;
