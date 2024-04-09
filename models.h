@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "utils.h"
 
 typedef struct document Document;
 
@@ -25,6 +26,8 @@ void delete_list_of_documents(Document** documents_head);
 
 Document* pop_document(Document** documents_head);
 
+void push_document(Document** documents_head, Document* new_document);
+
 typedef struct printer Printer;
 
 struct printer {
@@ -35,6 +38,11 @@ struct printer {
 };
 
 Printer* create_printer(int id, int time_to_process);
+
+
+void push_printer(Printer** printers_head, Printer* new_printer);
+
+Printer* pop_printer(Printer** printers_head);
 
 Printer* create_list_of_random_printers(int nr_of_printers);
 

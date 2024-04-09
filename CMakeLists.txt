@@ -8,4 +8,7 @@ include_directories(.)
 add_executable(SDA
         main.c
         models.h
-        models.c)
+        models.c
+        utils.h
+        utils.c
+        tests.c)

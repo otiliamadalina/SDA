@@ -17,7 +17,16 @@ Document* create_document(int id, const char* doc_name, int nr_of_lines) {
 }
 
 Document* create_list_of_random_documents(int nr_of_docs) {
+    Document* head = NULL;
 
+    for(int iter = 0; iter < nr_of_docs; ++iter) {
+        Document *new_document = create_document(generate_random_number(),
+                                                 generate_random_string(),
+                                                 generate_random_number());
+        push_document(&head, new_document);
+    }
+
+    return head;
 }
 
 void delete_document(Document **document) {
@@ -28,16 +37,38 @@ void delete_document(Document **document) {
 }
 
 void delete_list_of_documents(Document **documents_head) {
+    Document* previous_doc = NULL;
 
+    while(*documents_head != NULL) {
+        previous_doc = *documents_head;
+        (*documents_head) = (*documents_head)->next_doc;
+        delete_document(&previous_doc);
+    }
+
+    (*documents_head) = NULL;
 }
 
 Document* pop_document(Document** documents_head) {
+    Document* first_document = *documents_head;
+    (*documents_head) = (*documents_head)->next_doc;
+    return first_document;
+}
 
+void push_document(Document** documents_head, Document* new_document) {
+    if(new_document == NULL) return;
+
+    if(*documents_head == NULL) {
+        (*documents_head) = new_document;
+    } else {
+        Document *doc_iter = *documents_head;
+        while(doc_iter->next_doc != NULL) doc_iter = doc_iter->next_doc;
+        doc_iter->next_doc = new_document;
+    }
 }
 
 Printer* create_printer(int id, int time_to_process) {
 
-    Printer *printer = malloc(sizeof(Printer));
+    Printer *printer = (Printer*)malloc(sizeof(Printer));
 
     printer->id = id;
     printer->time_to_process = time_to_process;
@@ -47,8 +78,21 @@ Printer* create_printer(int id, int time_to_process) {
     return printer;
 }
 
-Printer* create_list_of_random_printers(int nr_of_printers) {
+void push_printer(Printer** printers_head, Printer* new_printer) {
 
+}
+
+Printer* pop_printer(Printer** printers_head) {
+
+}
+
+Printer* create_list_of_random_printers(int nr_of_printers) {
+    Printer* printers_head = NULL;
+    for(int iter = 0; iter < nr_of_printers; ++iter) {
+        Printer* new_printer = create_printer(generate_random_number(), generate_random_number());
+        push_printer(&printers_head, new_printer);
+    }
+    return printers_head;
 }
 
 void delete_printer(Printer** printer) {
