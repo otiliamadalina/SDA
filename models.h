@@ -28,6 +28,8 @@ Document* pop_document(Document** documents_head);
 
 void push_document(Document** documents_head, Document* new_document);
 
+void print_list_of_documents(Document** documents_head);
+
 typedef struct printer Printer;
 
 struct printer {
@@ -37,18 +39,24 @@ struct printer {
     Printer *next_printer;
 };
 
+/**
+ * Alloc memory for Printer structure
+ * @param id unique identificator for printer
+ * @param time_to_process
+ * @return
+ */
 Printer* create_printer(int id, int time_to_process);
 
+Printer* create_list_of_random_printers(int nr_of_printers);
 
 void push_printer(Printer** printers_head, Printer* new_printer);
 
 Printer* pop_printer(Printer** printers_head);
 
-Printer* create_list_of_random_printers(int nr_of_printers);
-
 void delete_printer(Printer** printer);
 
 void delete_list_of_printers(Printer** printers_head);
 
+void print_list_of_printers(Printer** printers_head);
 
 #endif //SDA_MODELS_H

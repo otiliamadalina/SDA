@@ -10,5 +10,4 @@ add_executable(SDA
         models.h
         models.c
         utils.h
-        utils.c
-        tests.c)
+        utils.c)
