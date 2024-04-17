@@ -12,7 +12,7 @@ bool iterate_session(Printer **printers_head, Document **documents_head, time_t*
     bool finish_flag = true;
     for (; printer_iter != NULL; printer_iter = printer_iter->next_printer) {
         if (printer_iter->current_doc == NULL) {
-            Document *new_doc = pop_document(documents_head);
+                Document *new_doc = pop_document(documents_head);
             printer_iter->current_doc = new_doc;
             if(new_doc == NULL) continue;
         }
