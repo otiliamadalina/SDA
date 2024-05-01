@@ -55,4 +55,14 @@ void _print_tree_element_recursive(const TreeElement *tree_element);
 TreeElement *_add_element_to_tree_to_left(TreeElement **current_element, TreeElement *tree_element);
 int _calculate_tree_element_depth(const TreeElement *tree_element, int element_id);
 
+enum MENU {
+    PRINT_ELEMENTS = 1,
+    DEPTH_TREE,
+    SEARCH_NODE,
+    DEPTH_NODE,
+    HEIGHT_NODE,
+    PRINT_LEAFS,
+    CLEAR_ELEMENTS,
+    FREE_TREE
+};
 #endif //SDA_MODEL_H
