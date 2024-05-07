@@ -6,7 +6,7 @@ int main() {
     Tree *test_tree = create_tree_with_elements(10);
 
     int choice;
-    printf("Choose: ");
+    printf("MENU:\n(1)Print Elements\n(2)Depth of the tree\n(3)Search a node(4)Depth of the node\n(5)Height of the node\n(6)Print Leafs\n(7)Clear Elements\n(8)Free tree\nChoose: ");
     scanf("%d", choice);
 
     switch(choice) {
