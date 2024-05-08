@@ -47,8 +47,8 @@ bool compare_tree_element_id_in_mirrored_tree(const TreeElement *left_tree_eleme
     return false;
 }
 
-bool compare_tree_element_id_in_not_mirrored_tree(int left_tree_element_id, int right_tree_element_id) {
-    if(left_tree_element_id > right_tree_element_id) {
+bool compare_tree_element_id_in_not_mirrored_tree(const TreeElement *left_tree_element, const TreeElement *right_tree_element) {
+    if(left_tree_element->element_id < right_tree_element->element_id) {
         return true;
     }
     return false;
