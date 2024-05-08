@@ -128,6 +128,7 @@ void print_tree(const Tree *tree) {
     if (tree->tree_root == NULL) {
         printf("%s: Tree root is NULL", error_on_print_message);
     }
+    printf("Current tree:\n");
     _print_tree_element_recursive(tree->tree_root);
 }
 
