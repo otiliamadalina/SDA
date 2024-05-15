@@ -43,6 +43,7 @@ void clear_tree_element(TreeElement *element);
 
 
 
+
 typedef struct search_tree SearchTree;
 
 struct search_tree {
@@ -56,10 +57,11 @@ int calculate_tree_element_depth(const SearchTree *tree, const TreeElement *tree
 
 SearchTree *create_tree_with_elements(int nr_of_elements);
 
+TreeElement* _add_element_to_tree(TreeElement* current_tree_element, TreeElement* tree_element_to_insert, bool (*compare_function)(int, int));
 TreeElement *add_element_to_tree(SearchTree *tree, TreeElement *tree_element);
 
 void print_tree(const SearchTree *tree);
-
+void pretty_printf_search_tree(SearchTree* tree);
 void print_tree_leafs(const SearchTree *tree);
 
 int calculate_tree_depth(const SearchTree *tree);
@@ -70,14 +72,24 @@ void clear_tree(SearchTree *tree);
 
 void delete_tree(SearchTree *tree);
 
+void balance_tree(SearchTree* tree);
+
+void mirror_tree(SearchTree* tree);
+
+TreeElement* search_element_int_search_tree(SearchTree* tree,  int element_id);
+int count_nr_of_elements_in_search_tree(SearchTree* tree);
+bool is_search_tree_balanced(SearchTree* tree);
 
 
 const TreeElement *_find_tree_element(const TreeElement *current_element, int element_id);
 void _print_tree_element_leaf_recursive(const TreeElement *tree_element);
 void _print_tree_element_recursive(const TreeElement *tree_element);
-TreeElement *_add_element_to_tree_to_left(TreeElement **current_element, TreeElement *tree_element);
 int _calculate_tree_element_depth(const TreeElement *tree_element, int element_id);
 
+void print_tree_depth(TreeElement *tree_element);
+void print_tree_vsd(TreeElement *tree_element);
+void print_tree_svd(TreeElement *tree_element);
+void print_tree_sdv(TreeElement *tree_element);
 
 
 #endif //SDA_MODEL_H
