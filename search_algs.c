@@ -1,7 +1,3 @@
-//
-// Created by ASUS on 31.05.2024.
-//
-
 
 int linear_search(int * array, int n, int key)
 {
@@ -43,21 +39,15 @@ int binary_search(int * array, int n, int key)
 }
 
 
-int sentinel_search(int * array, int n, int key)
-{
+int sentinel_search(int * array, int n, int key) {
 
-    // Last element of the array
     int last = array[n - 1];
-
-    // Element to be searched is
-    // placed at the last index
     array[n - 1] = key;
-    int i = 0;
 
+    int i = 0;
     while (array[i] != key)
         i++;
 
-    // Put the last element back
     array[n - 1] = last;
 
     if ((i < n - 1) || (array[n - 1] == key)) {

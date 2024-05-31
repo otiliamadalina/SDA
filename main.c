@@ -1,15 +1,10 @@
-//
-// Created by ASUS on 31.05.2024.
-//
-
-
-
 #include <stdio.h>
 #include "fib_algs.h"
 #include "sort_algs.h"
 #include "search_algs.h"
 #include <time.h>
 #include <stdlib.h>
+
 /*
  * 51485628397465928374 +
  *      103485234856234
@@ -38,7 +33,6 @@
  * 5 3 6 2 8 4 9 1
  *
  * */
-
 
 #define GET_EXEC_TIME(x) for(clock_t start_time = clock(), run = start_time; run == start_time; run = clock(), x=(double)( (clock() - start_time) / (double)CLOCKS_PER_SEC ))
 
@@ -94,21 +88,21 @@ double get_exec_time_in_sec_of_search_alg(int array_size, int search_key, int (*
 
 int main() {
     srand(time(NULL));
-//    for(int i = 37; i <= 47; i+=2) {
-//        printf("Time to execute fibo(%d) = %lf\n",i, get_exec_time_in_sec_of_fib_alg(i));
-//    }
+    for(int i = 37; i <= 47; i+=2) {
+       printf("Time to execute fibo(%d) = %lf\n",i, get_exec_time_in_sec_of_fib_alg(i));
+    }
 
-//    printf("----------------------------Sort algs-----------------------------\n");
-//    printf("Merge sort\n");
-//    for (int i = 100; i <= 100000; i *= 10) {
-//        printf("Time to execute sort(%d) = %lf\n", i, get_exec_time_in_sec_of_sort_alg(i, merge_sort));
-//    }
-//
-//
-//    printf("\nBubble sort\n");
-//    for (int i = 100; i <= 100000; i *= 10) {
-//        printf("Time to execute sort(%d) = %lf\n", i, get_exec_time_in_sec_of_sort_alg(i, bubble_sort));
-//    }
+    printf("----------------------------Sort algs-----------------------------\n");
+    printf("Merge sort\n");
+    for (int i = 100; i <= 100000; i *= 10) {
+        printf("Time to execute sort(%d) = %lf\n", i, get_exec_time_in_sec_of_sort_alg(i, merge_sort));
+    }
+
+
+    printf("\nBubble sort\n");
+    for (int i = 100; i <= 100000; i *= 10) {
+        printf("Time to execute sort(%d) = %lf\n", i, get_exec_time_in_sec_of_sort_alg(i, bubble_sort));
+    }
 
     printf("----------------------------Search algs-----------------------------\n");
     printf("Linear search\n");

@@ -1,6 +1,4 @@
-//
-// Created by ASUS on 31.05.2024.
-//
+
 
 #ifndef GIT_WORK_SORT_ALGS_H
 #define GIT_WORK_SORT_ALGS_H
